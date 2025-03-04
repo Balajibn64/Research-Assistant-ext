@@ -2,23 +2,46 @@
 <html lang="en">
 <head>
     <title>Research Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sidepanel.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>Research Assistant</h2>
-        </div>
-        <div class="actions">
-            <button id="summarize-Btn">Summarize</button>
-        </div>
-        <div class="notes">
-            <h3>Research Notes</h3>
-            <textarea  id="notes" placeholder="Take notes here"></textarea>
-            <button id="saveNotes-Btn">Save Notes</button>
-        </div>
-        <div id="results"></div>
+<div class="container">
+    <div class="header">
+        <h2>Research Assistant</h2>
     </div>
-    <script src="sidepanel.js"></script>
+    <div class="actions">
+        <button id="summarize-Btn">Summarize</button>
+        <button id="suggest-Btn">Suggest Improvements</button>
+        <button id="paraphrase-Btn">Paraphrase</button>
+        <button id="grammarCheck-Btn">Grammar Check</button>
+        <button id="expand-Btn">Expand Content</button>
+    </div>
+    <div class="notes">
+        <h3>Research Notes</h3>
+        <textarea id="notes" placeholder="Take notes here..."></textarea>
+        <div class="note-actions">
+            <button id="saveNotes-Btn">Save Notes</button>
+            <button id="downloadNotes-Btn">Download Notes</button>
+        </div>
+    </div>
+    <div id="results"></div>
+    <div class="buttons">
+        <button id="copy-Btn">Copy to Clipboard</button>
+        <button id="clearResults-Btn">Clear Results</button>
+        <button id="speak-Btn">Speak</button>
+        <button id="stopSpeak-Btn">Stop Speaking</button>
+    </div>
+        <div id="toast" class="toast"></div>
+</div>
+<script>
+    const notes = document.getElementById("notes");
+    const charCount = document.getElementById("charCount");
+
+    notes.addEventListener("input", () => {
+        charCount.textContent = `${notes.value.length} characters`;
+    });
+</script>
+<script src="sidepanel.js"></script>
 </body>
 </html>
